@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <title>RECRUITMENT TASK </title>
+</head>
+
+<body>
+  <main class="container">
+
+
+    
+
+    <p class="d-flex justify-content-start text-#fd7e14 my-5">Enter decimal number to convert, select base system, target system and click CONVERT.</p>
+
+
+    <form>
+        <div class="form-row align-items-center">
+          <div class="col-auto my-1">
+            <label type=text class="text-success fw-bold">Source numeral system:</label> <br>
+            <select id="initial_base" class="w-25 p-3 rounded-pill border border-3" >
+                <option class="w-25 p-3 rounded-pill border border-3" value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="16">16</option>
+            </select>
+        </div>
+      </form>
+
+
+      <form>
+        <div class="form-row align-items-center">
+          <div class="col-auto my-1">
+            <label type=text class="text-success fw-bold">Target numeral system:</label> <br>
+            <select id="selectid" class="w-25 p-3 rounded-pill border border-3" >
+              <option class="w-25 p-3 rounded-pill border border-3" value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="16">16</option>
+            </select>
+        </div>
+      </form>
+
+      <div class="row">
+        <div class="col">
+  
+          <label type=text class="text-success fw-bold">
+            Number to be converted:
+          </label> <br>
+          <input  type="text"  class="w-25 p-3 rounded-pill border border-3"><br>
+        </div>
+      </div>
+  
+
+    <button id="button1" type="button"   class="btn my-4 btn btn-success">CONVERT</button>
+    <div class="answer" id="answer"></div>
+    
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <script>
+
+        let Answer = function(e) {
+        let radix;
+        let radixStr = document.getElementById('selectid').value;
+        let val = parseInt(document.getElementsByTagName("input")[0].value);
+            switch(radixStr) {
+                case "dual":
+                    radix = 2;
+                    break;
+                case "3":
+                    radix = 3;
+                    break;
+                case "4":
+                    radix = 4;
+                    break;
+                case "5":
+                    radix = 5;
+                    break;
+                case "6":
+                    radix = 6;
+                    break;
+                case "7":
+                    radix = 7;
+                    break;
+                case "8":
+                    radix = 8;
+                    break;
+                case "9":
+                    radix = 9;
+                    break;
+                case "10":
+                    radix = 10;
+                    break;
+                case "16":
+                    radix = 16;
+                    break;
+             } 
+
+            document.getElementById("answer").innerHTML = val.toString(radix);
+            e.preventDefault();
+            return false;
+        }
+        document.getElementById("button1").addEventListener("click",Answer);
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
